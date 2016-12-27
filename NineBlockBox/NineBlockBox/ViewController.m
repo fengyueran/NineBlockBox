@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "Shop.h"
+#import "XHView.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UIView *shopsView;
@@ -21,44 +23,56 @@
 
 @implementation ViewController
 
+- (NSArray *)shops {
+    if (!_shops) {
+        NSString *file = [[NSBundle mainBundle]pathForResource:@"shops" ofType:@"plist"];
+        NSArray *dictArray = [NSArray arrayWithContentsOfFile:file];
+        NSMutableArray *mutableArr = [NSMutableArray array];
+        for (NSDictionary *dict in dictArray) {
+            Shop *shop = [Shop shopWithDict:dict];
+            [mutableArr addObject:shop];
+        }
+        _shops = mutableArr;
+    }
+    return _shops;
+}
+
+//view创建完毕，载入内存，还未渲染出画面时调用。
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.removeButton.enabled = NO;
     self.HUDLabel.hidden = YES;
 }
 
-
 - (IBAction)add:(UIButton *)sender {
-    CGFloat shopViewWidth = 50;
-    CGFloat shopViewHeight = 70;
+    CGFloat shopViewWidth = 100;
+    CGFloat shopViewHeight = 120;
     NSInteger numberOfItem = 3;
-    CGFloat colMagin = (self.shopsView.frame.size.width - numberOfItem * shopViewWidth) / (numberOfItem - 1);
-    CGFloat rowMagin = 10;
-    
+    //商品的索引
     NSUInteger index = self.shopsView.subviews.count;
     
-    NSUInteger row = index / numberOfItem;
+    //商品的x值
     NSUInteger colum = index % numberOfItem;
+    CGFloat colMagin = (self.shopsView.frame.size.width - numberOfItem * shopViewWidth) / (numberOfItem - 1);
+    CGFloat shopX = colum * (shopViewWidth + colMagin);
     
-    UIView *shopView = [[UIView alloc]initWithFrame:CGRectMake(colum * (shopViewWidth + colMagin), row * (shopViewHeight + rowMagin), shopViewWidth, shopViewHeight)];
+    //商品的y值
+    NSUInteger row = index / numberOfItem;
+    CGFloat rowMagin = 10;
+    CGFloat shopY = row * (shopViewHeight +rowMagin);
+    
+    //添加商品view
+    XHView *shopView = [[XHView alloc]init];
+    shopView.frame = CGRectMake(shopX, shopY, shopViewWidth, shopViewHeight);
+    
+    Shop *shop = self.shops[index];
+    shopView.shop = shop;
     [self.shopsView addSubview:shopView];
-    
-    NSString *file = [[NSBundle mainBundle]pathForResource:@"shops" ofType: @"plist"];
-    self.shops = [NSArray arrayWithContentsOfFile:file];
-    NSDictionary *shop = self.shops[index];
-    
-    
-    UIImageView *iconImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, shopViewWidth, shopViewWidth)];
-    iconImageView.image = [UIImage imageNamed:shop[@"icon"]];
-    [shopView addSubview:iconImageView];
-    
-    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, shopViewWidth, shopViewWidth, 20)];
-    label.text = shop[@"name"];
-    label.font = [UIFont systemFontOfSize:11];
-    label.textAlignment = NSTextAlignmentCenter;
-    [shopView addSubview:label];
+
+    //控制按钮的可用性
     [self checkState];
 }
+
 
 - (IBAction)remove:(UIButton *)sender {
     [self.shopsView.subviews.lastObject removeFromSuperview];

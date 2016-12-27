@@ -15,7 +15,9 @@
 		8063F9A61E0E9D8900507F2A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8063F9A41E0E9D8900507F2A /* LaunchScreen.storyboard */; };
 		8063F9B11E0E9D8900507F2A /* NineBlockBoxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8063F9B01E0E9D8900507F2A /* NineBlockBoxTests.m */; };
 		8063F9BC1E0E9D8900507F2A /* NineBlockBoxUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8063F9BB1E0E9D8900507F2A /* NineBlockBoxUITests.m */; };
-		8063F9CA1E0EA21400507F2A /* shops.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8063F9C91E0EA21400507F2A /* shops.plist */; };
+		8063F9CC1E0EA5C100507F2A /* shops.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8063F9CB1E0EA5C100507F2A /* shops.plist */; };
+		8063F9CF1E0EAEE900507F2A /* Shop.m in Sources */ = {isa = PBXBuildFile; fileRef = 8063F9CE1E0EAEE900507F2A /* Shop.m */; };
+		8063F9D21E0EC06B00507F2A /* XHView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8063F9D11E0EC06B00507F2A /* XHView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +54,11 @@
 		8063F9B71E0E9D8900507F2A /* NineBlockBoxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NineBlockBoxUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8063F9BB1E0E9D8900507F2A /* NineBlockBoxUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NineBlockBoxUITests.m; sourceTree = "<group>"; };
 		8063F9BD1E0E9D8900507F2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8063F9C91E0EA21400507F2A /* shops.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = shops.plist; sourceTree = "<group>"; };
+		8063F9CB1E0EA5C100507F2A /* shops.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = shops.plist; sourceTree = "<group>"; };
+		8063F9CD1E0EAEE900507F2A /* Shop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shop.h; sourceTree = "<group>"; };
+		8063F9CE1E0EAEE900507F2A /* Shop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shop.m; sourceTree = "<group>"; };
+		8063F9D01E0EC06B00507F2A /* XHView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHView.h; sourceTree = "<group>"; };
+		8063F9D11E0EC06B00507F2A /* XHView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,11 +113,15 @@
 				8063F99A1E0E9D8900507F2A /* AppDelegate.m */,
 				8063F99C1E0E9D8900507F2A /* ViewController.h */,
 				8063F99D1E0E9D8900507F2A /* ViewController.m */,
+				8063F9CD1E0EAEE900507F2A /* Shop.h */,
+				8063F9CE1E0EAEE900507F2A /* Shop.m */,
+				8063F9D01E0EC06B00507F2A /* XHView.h */,
+				8063F9D11E0EC06B00507F2A /* XHView.m */,
 				8063F99F1E0E9D8900507F2A /* Main.storyboard */,
 				8063F9A21E0E9D8900507F2A /* Assets.xcassets */,
 				8063F9A41E0E9D8900507F2A /* LaunchScreen.storyboard */,
 				8063F9A71E0E9D8900507F2A /* Info.plist */,
-				8063F9C91E0EA21400507F2A /* shops.plist */,
+				8063F9CB1E0EA5C100507F2A /* shops.plist */,
 				8063F9961E0E9D8900507F2A /* Supporting Files */,
 			);
 			path = NineBlockBox;
@@ -205,6 +215,7 @@
 		8063F98B1E0E9D8900507F2A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = XH;
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = snow;
 				TargetAttributes = {
@@ -248,7 +259,7 @@
 			files = (
 				8063F9A61E0E9D8900507F2A /* LaunchScreen.storyboard in Resources */,
 				8063F9A31E0E9D8900507F2A /* Assets.xcassets in Resources */,
-				8063F9CA1E0EA21400507F2A /* shops.plist in Resources */,
+				8063F9CC1E0EA5C100507F2A /* shops.plist in Resources */,
 				8063F9A11E0E9D8900507F2A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,6 +288,8 @@
 				8063F99E1E0E9D8900507F2A /* ViewController.m in Sources */,
 				8063F99B1E0E9D8900507F2A /* AppDelegate.m in Sources */,
 				8063F9981E0E9D8900507F2A /* main.m in Sources */,
+				8063F9CF1E0EAEE900507F2A /* Shop.m in Sources */,
+				8063F9D21E0EC06B00507F2A /* XHView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
