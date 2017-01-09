@@ -515,6 +515,7 @@
 				8063F9C21E0E9D8900507F2A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8063F9C31E0E9D8900507F2A /* Build configuration list for PBXNativeTarget "NineBlockBoxTests" */ = {
 			isa = XCConfigurationList;
@@ -523,6 +524,7 @@
 				8063F9C51E0E9D8900507F2A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8063F9C61E0E9D8900507F2A /* Build configuration list for PBXNativeTarget "NineBlockBoxUITests" */ = {
 			isa = XCConfigurationList;
@@ -531,6 +533,7 @@
 				8063F9C81E0E9D8900507F2A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
